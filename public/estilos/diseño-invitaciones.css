@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+}
+
+nav.navbar ul.nav li {
+    font-family: Arial;
+    padding: 0.625rem, 1.25rem;
+}
+
+.fondo {
+    width: 100vw;
+    height: 100vh;
+}
+
+.banner {
+    width: 100vw;
+    height: auto;
+}
+
+.resto {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 100vw;
+    height: 70vh;
+    background-color: beige;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 799px) {
+    .resto {
+        background-image: url(imagenes/fondo4.png)
+    }
+}
+
+.bajo {
+    width: 40vw;
+    align-self: flex-end;
+}
+
+.botones {
+    display: flex;
+    align-self: center;
+    width: 40vw;
+    height: 70vh;
+    background-color: transparent;
+}
+
+.carro {
+    width: 40px;
+}
+
+.logo {
+    width: 50px;
+}
+
+.flecha {
+    width: 50px;
+    height: 50px;
+}
+
+.item {
+    width: 100vw;
+    height: 5vh;
+    background-color: rgb(226, 43, 43);
+    font-weight: bolder;
+    font-family: Arial;
+    font-style: italic;
+    align-content: center;
+    text-align: center;
+    color: white;
+}
+
+.social {
+    /*las imágenes usadas tienen width de 48px*/
+    width: 48px;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    top: 50%;
+    height: 50px;
+    margin-top: -100px;
+    background-color: rgb(255, 255, 255);
+}
+
+.item2 {
+    width: 100vw;
+    height: 5vh;
+    background-color: rgb(128, 43, 226);
+    font-weight: bolder;
+    font-family: Arial;
+    font-style: italic;
+    align-content: center;
+    text-align: center;
+    color: white;
+}
+
+legend {
+    align-content: center;
+    width: 100 vw;
+    text-align: center;
+    height: 5vh;
+}
+
+#tipoevento {
+    width: fit-content;
+}
+
+.form-label {
+    font-weight: bolder;
+}
+
+#fecha {
+    text-align: center;
+    width: fit-content;
+    margin-left: 150px;
+}
+
+#cantinv {
+    width: fit-content;
+}
+
+#lugarevento {
+    width: fit-content;
+    margin-left: 150px;
+}
+
+#nombrevento {
+    width: fit-content;
+    margin-left: 150px;
+}
+
+#invitac {
+    margin-top: 25px;
+    position: static;
+}
+
+#fech {
+    margin-left: 150px;
+}
+
+#leve {
+    margin-left: 150px;
+}
+
+#neve {
+    margin-left: 150px;
+}
+
+#fra {
+    margin-left: 130px;
+}
+
+#radio1 {
+    margin-right: 150px;
+}
+
+.card img {
+    width: 250px;
+    height: 300px;
+}
+
+.form-check {
+    margin-left: 625px;
+}
+
+.fondo {
+    background-image: url(imagenes/fondo4.png);
+}
+
+.mb-3 {
+    display: flex;
+    margin-left: 80px;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-select {
+    margin-left: 80px;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(45deg, #00aeff, #D55656);
+    border-radius: 10px;
+}

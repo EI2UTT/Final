@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(45deg, #00aeff, #D55656);
+    border-radius: 10px;
+}
+
+nav.navbar ul.nav li {
+    font-family: Arial;
+    padding: 0.625rem, 1.25rem;
+}
+
+.fondo {
+    width: 100vw;
+    height: 100vh;
+}
+
+.banner {
+    width: 100vw;
+    height: auto;
+}
+
+.resto {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 100vw;
+    height: 70vh;
+    background-color: beige;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 799px) {
+    .resto {
+        background-image: url(imagenes/logo.png)
+    }
+}
+
+.bajo {
+    width: 40vw;
+    align-self: flex-end;
+}
+
+.botones {
+    display: flex;
+    align-self: center;
+    width: 40vw;
+    height: 70vh;
+    background-color: transparent;
+}
+
+.carro {
+    width: 40px;
+}
+
+.logo {
+    width: 60px;
+    text-align: center;
+}
+
+.flecha {
+    width: 50px;
+    height: 50px;
+}
+
+.card img {
+    height: 65vh;
+    opacity: 0.5;
+}
+
+.col-auto {
+    padding-top: 90px;
+}
+
+
+/****************************************************************/
+
+.form-login {
+    width: 325px;
+    height: 330px;
+    background: white;
+    margin: auto;
+    margin-top: -470px;
+    padding: 20px 30px;
+    border-top: 4px solid #D55656;
+    color: white;
+}
+
+.form-login h5 {
+    color: black;
+    margin: 0;
+    text-align: center;
+    height: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    font-size: 20px;
+}
+
+.controls {
+    width: 100%;
+    border: 1px solid #9caaaf;
+    margin-bottom: 15px;
+    padding: 11px 10px;
+    background: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+.buttons {
+    cursor: pointer;
+    font-style: italic;
+    font-size: large;
+    margin-top: 20px;
+    margin-left: 72px;
+    width: 50%;
+    height: 40px;
+    background: #D55656;
+    border: none;
+    color: white;
+    margin-bottom: 16px;
+    border-radius: 15px;
+}
+
+.buttons:hover {
+    background-color: #D55656;
+    box-shadow: 2px 2px 20px #D55656, #fff 0 -1px 2px;
+}
+
+.item {
+    width: 100vw;
+    height: 5vh;
+    background-color: rgb(226, 43, 43);
+    font-weight: bolder;
+    font-family: Arial;
+    font-style: italic;
+    align-content: center;
+    text-align: center;
+    color: white;
+}
+
+.social {
+    /*las imágenes usadas tienen width de 48px*/
+    width: 48px;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    top: 50%;
+    height: 205px;
+    margin-top: -100px;
+}
+
+.social a {
+    margin-top: 5rem;
+}
