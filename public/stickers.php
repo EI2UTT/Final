@@ -39,8 +39,8 @@
                 <li class="nav-item">
                     <div class="btn-group">
                         <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: aqua; margin-top: 1vh;">
-                              <img class="perf" src="estilos/imagenes/perf-icon.png" alt="" style="width: 3vw;"> 
-                            </button>
+                            <img class="perf" src="estilos/imagenes/perf-icon.png" alt="" style="width: 3vw;">
+                        </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="perfil.html">MI PERFIL</a></li>
                             <li><a class="dropdown-item" href="#">MI PEDIDO</a></li>
@@ -67,12 +67,12 @@
                             <label for="Tipoevento" class=" mb-3 form-label">Tipo de evento</label> <br>
                             <select class="form-select" id="tipoevento">
                                 <option selected>Selecciona uno</option>
-                                 <option value="1">Cumpleaños</option>
-                                 <option value="2">XV Años</option>
-                                 <option value="3">Boda</option>
-                                 <option value="4">Primera comunión</option>
-                                 <option value="5">Bautizo</option>
-                                 <option value="6">Baby shower</option>
+                                <option value="1">Cumpleaños</option>
+                                <option value="2">XV Años</option>
+                                <option value="3">Boda</option>
+                                <option value="4">Primera comunión</option>
+                                <option value="5">Bautizo</option>
+                                <option value="6">Baby shower</option>
                                 <option value="7">Reunion formal</option>
                             </select>
                         </div>
@@ -88,7 +88,7 @@
                             </div>
                             <div>
                                 <div class="mb-3 row">
-                                    <label id="neve" for="Nombrevento" class=" mb-3 form-label">Nombre del evento  </label>
+                                    <label id="neve" for="Nombrevento" class=" mb-3 form-label">Nombre del evento </label>
                                     <input type="text" class=" mb-3 form-control" data-toggle="popover" data-trigger="focus" data-content="Aquí también puede ir el nombre del festejad@" id="nombrevento" cols="50" rows="2">
                                 </div>
                             </div>
@@ -110,6 +110,7 @@
                     </div>
 
                     <div class="card-group" id="invitac">
+                        
                         <div class="card" style="width: 18rem;">
                             <img src="estilos/imagenes/stickercump.png" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -121,28 +122,6 @@
                                 <a href="#" class="btn btn-primary">Añadir a carrito</a>
                             </div>
 
-                        </div>
-                        <div class="card">
-                            <img src="estilos/imagenes/bodastick.webp" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">Sticker boda</h5>
-                                <label for="Cantidadinvita" class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
-                                <br>
-
-                                <a href="#" class="btn btn-primary">Añadir a carrito</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="estilos/imagenes/stickergrad.webp" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">Sticker boda</h5>
-                                <label for="Cantidadinvita" class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
-                                <br>
-
-                                <a href="#" class="btn btn-primary">Añadir a carrito</a>
-                            </div>
                         </div>
                     </div>
         </div>
@@ -220,9 +199,9 @@
         </footer>
     </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
 

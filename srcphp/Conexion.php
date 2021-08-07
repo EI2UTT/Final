@@ -3,8 +3,9 @@
     namespace proyecto;
     
     use PDO;
-    
-    class Conexion
+use PDOException;
+
+class Conexion
     {
         /**
          * Conexion constructor.

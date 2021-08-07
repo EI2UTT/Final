@@ -61,72 +61,57 @@
             </section>
 
         </div>
-        <div class="base">
-            <h4>SELECCIONA TU PEDIDO</h4>
-            <div class="contenedor02">
-                <div class="img-1"></div>
-                <input class="cross" type="checkbox" value="" aria-label="...">
-                <div class="M2">DISEÑO A</div>
-                <div class="M3">
-                    <p> Quam earum necessitatibus facilis alias blanditiis dolorem aperiam cumque numquam, voluptate enim ex et quas beatae perspiciatis in quo aliquam nobis. Ab!</p>
-                </div>
-            </div>
-            <div class="contenedor02">
-                <div class="img-1"></div>
-                <input class="cross" type="checkbox" value="" aria-label="...">
-                <div class="M2">DISEÑO B</div>
-                <div class="M3">
-                    <p> Quam earum necessitatibus facilis alias blanditiis dolorem aperiam cumque numquam, voluptate enim ex et quas beatae perspiciatis in quo aliquam nobis. Ab!</p>
-                </div>
-            </div>
-            <div class="contenedor02">
-                <div class="img-1"></div>
-                <input class="cross" type="checkbox" value="" aria-label="...">
-                <div class="M2">DISEÑO C</div>
-                <div class="M3">
-                    <p> Quam earum necessitatibus facilis alias blanditiis dolorem aperiam cumque numquam, voluptate enim ex et quas beatae perspiciatis in quo aliquam nobis. Ab!</p>
-                </div>
-            </div>
-            <div class="contenedor02">
-                <div class="img-1"></div>
-                <input class="cross" type="checkbox" value="" aria-label="...">
-                <div class="M2">DISEÑO D</div>
-                <div class="M3">
-                    <p> Quam earum necessitatibus facilis alias blanditiis dolorem aperiam cumque numquam, voluptate enim ex et quas beatae perspiciatis in quo aliquam nobis. Ab!</p>
-                </div>
-            </div>
-        </div>
         <div class="sel-per">
             <div class="div03">
-                <h5 id="title03">Selecciona la cantidad de mesas:</h5>
+                <h5 id="title03">Selecciona la cantidad de personas:</h5>
             </div>
             <div class="div03">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
                 <label class="form-check-label" for="exampleRadios1">
-                  10
+                    100
                 </label>
             </div>
             <div class="div03">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                <label class="form-check-label" for="exampleRadios1">
-                  20
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                    200
                 </label>
             </div>
             <div class="div03">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                <label class="form-check-label" for="exampleRadios1">
-                  30
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                <label class="form-check-label" for="exampleRadios3">
+                    300
                 </label>
             </div>
         </div>
         <div></div>
         <div class="agreg">
             <div class="div02">
-                <h6 id="title04">Presiona para agregar al carrito</h6>
+                <h5 id="title04">Presiona para agregar al carrito</h5>
             </div>
             <button type="button" class="btn btn-primary btn-lg">Agregar</button>
         </div>
+
+
+        <div class="base" id="app2">
+            <h4>SELECCIONA TU PEDIDO</h4>
+            <?php include_once("../public/controller/moscentros.php");?>
+            <?php foreach($diseñoservicio as $banquetes) {?>
+            <div class="contenedor02" V-for="servicios in servicior">
+                <div class="img-1"></div>
+                <input class="cross" type="checkbox" value="" aria-label="...">
+                <div class="M2"><?php echo $banquetes->nombredisser?></div>
+                <div class="M3"><?php echo $banquetes->descripcion?></div>
+                <div class="M4"><?php echo $banquetes->cantidadpersonas?>Perosnas</div>
+
+            </div>
+            <?php } ?>
+            
+        </div>
+
     </div>
+
+    
     <footer class="text-center text-lg-start bg-light text-muted">
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <div class="me-5 d-none d-lg-block">
@@ -198,8 +183,9 @@
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>

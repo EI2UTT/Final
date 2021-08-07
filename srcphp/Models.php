@@ -99,6 +99,16 @@
             }
             return  json_encode($resultados[0]);
         }
-       
+        public function mostrar($id_cliente){
+            $cid= $this->id_cliente!=""?$this->id_cliente:"id_cliente";
+            $stmt = self::$pdo->prepare("select *  from $this->table where  $cid=:id_cliente");
+            $stmt->bindParam(":id_cliente",$id_cliente);
+            $stmt->execute();
+            $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
+            if($resultados==null){
+                return  json_encode([]);
+            }
+            return  json_encode($resultados[0]);
+        }
         
     }

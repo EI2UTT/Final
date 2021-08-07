@@ -15,6 +15,7 @@
         $c->correo=$correo;
         $c->passwordd=$passwordd;
         $c->save();
+        $c->mostrar(1);
       
       echo  json_encode( $c->all());
     
