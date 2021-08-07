@@ -1,3 +1,6 @@
+<?php
+ require('../srcphp/verificarsesion.php')
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,9 +8,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos/diseño-registro.css">
+    <link rel="stylesheet" href="estilos/diseño-inicio-sesion.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Registro</title>
+    <title>Inicio de sesion</title>
 </head>
 
 <body>
@@ -35,7 +38,7 @@
                 </li>
             </ul>
         </div>
-        <section class="item">Registrate para poder ingresar</section>
+        <section class="item">Recuerda iniciar sesión para empezar a trabajar con nosotros</section>
         <section class="container-fluid ">
             <div class="column auto align items center justify-content-center">
         </section>
@@ -44,17 +47,19 @@
 
         </section>
     </div>
-
-    <section class="form-login" id="app">
+<div  id="app" >
+    <section class="form-login">
         <i><h5>!Bienvenid@¡</h5></i>
-        <input class="controls" v-model="clientes.nomcliente" type="text" name="nomcliente" value="" placeholder="Nombre completo" id="Nombre">
-        <input class="controls" v-model="clientes.telefono" type="tel" name="telefono" value="" placeholder="Telefono" id="Telefono">
-        <input class="controls" v-model="clientes.correo" type="text" name="correo" value="" placeholder="Email" id="Correo">
-        <input class="controls" v-model="clientes.passwordd" type="password" name="passwordd" placeholder="Contraseña" id="Passwordd">
-        <button type="button"  class="buttons" id="btnguardar" @click="enviarDatos">Registrarse</button>
-        <p style="color: black;">Ya tienes una cuenta? <a href="inicio-sesion.html" style="color: tomato;">     Inicia sesión</a></p>
+        <input class="controls" type="text" name="E-mail" v-model="clientes.correo" value="" placeholder="Email" id="correo">
+        <br>
+        <input class="controls" type="password" v-model="clientes.passwordd" name="Contraseña" placeholder="Contraseña" id="passwordd">
+        <h2 id="ms" v-if="mostrarerror">El correo que ingresaste no está registrado</h2>
+        <div>
+        <button type="button" class="buttons" id="btnsesion" @click="inicioses">Iniciar sesión</button>
+        <p style="color: black;">No tienes una cuenta? <a href="registro.html">    Registrate</a></p>
+    </div>
     </section>
-
+</div>
     <footer class="text-center text-lg-start bg-light text-muted">
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <div class="me-5 d-none d-lg-block">
@@ -87,7 +92,7 @@
                             <a href="productos.html" class="text-reset">Productos</a>
                         </p>
                         <p>
-                            <a href="carrito.html" class="text-reset">Pedidos</a>
+                            <a href="carrito2.html" class="text-reset">Pedidos</a>
                         </p>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -120,43 +125,66 @@
             ©️ 2021 Copyright:D'talles,Inc.
             <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Terminos</a>
             <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Privacidad</a>
+            <div class="social">
+                <a href="https://www.facebook.com/dtallees" target="blank"><img src="estilos/imagenes/facebook.svg" alt="facebook"></a>
+                <a href="https://www.instagram.com/dtallees/" target="blank"><img src="estilos/imagenes/instagram.svg" alt="instagram"></a>
+            </div>
         </div>
     </footer>
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
-  var app =new Vue({
-      el:'#app',
-      data:{
-          clientes:{
-            nomcliente:"",
-            telefono:"",
-            correo:"",
-            passwordd:""
-          },
-      },
-      methods:{
-          enviarDatos:function(){
-            var params =new URLSearchParams();
-              params.append('nomcliente', this.clientes.nomcliente);
-              params.append('telefono', this.clientes.telefono);
-              params.append('correo', this.clientes.correo);
-              params.append('passwordd', this.clientes.passwordd);
+    var app = new Vue({
+        el: '#app',
+        data: {
+            clientes: {
+                correo: "",
+                passwordd: ""
+            },
+            },
+        methods: {
+            inicioses: function () {
+    var params = new URLSearchParams();
+     params.append('correo', this.clientes.correo);
+    params.append('passwordd', this.clientes.passwordd);
+                axios.post('/controller/iniciarsesion.php', params)
+                    .then((response) => {
+                        this.mostrarerror = !response.data.acceso;
+                        if (response.data.acceso) {
+                            window.location = "/";
 
-              axios.post('controller/insertarcliente.php', params)
-              .then(function(response)
-              {console.log(response);})
-              .catch(function(error){console.log(error);})
-          }
-      }
+                        }
 
-  })
-    
+
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
+            }
+        }
+        // },
+        // methods: {
+        //     inicioses: function () {
+        //         var params = new URLSearchParams();
+        //         params.append('correo', this.clientes.correo);
+        //         params.append('passwordd', this.clientes.passwordd);
+
+        //         axios.post('/controller/iniciarsesion.php', params)
+        //             .then(function (response) { console.log(response); })
+        //             .catch(function (error) { console.log(error); })
+        //     }
+        // }
+
+    })
+
 </script>
 
 </body>

@@ -44,15 +44,18 @@
 
         </section>
     </div>
-
+<div  id="app" >
     <section class="form-login">
         <i><h5>!Bienvenid@¡</h5></i>
-        <input class="controls" type="text" name="E-mail" value="" placeholder="Email">
-        <input class="controls" type="password" name="Contraseña" placeholder="Contraseña">
-        <input class="buttons" type="submit" name="" value="Iniciar sesion">
-        <p style="color: black;">No tienes una cuenta? <a href="registro.html">    Registrate</a></p>
+        <input class="controls" type="text" name="E-mail" v-model="clientes.correo" value="" placeholder="Email" id="correo">
+        <br>
+        <input class="controls" type="password" v-model="clientes.passwordd" name="Contraseña" placeholder="Contraseña" id="passwordd">
+        <div>
+        <button type="button" class="buttons" id="btnsesion" @click="inicioses">Iniciar sesión</button>
+        <p id="ms" v-if="mostrarerror" style="color: tomato;">No tienes una cuenta? <a href="registro.html" style="color: tomato;">    Registrate</a></p>
+    </div>
     </section>
-
+</div>
     <footer class="text-center text-lg-start bg-light text-muted">
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <div class="me-5 d-none d-lg-block">
@@ -127,7 +130,61 @@
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        
+        data: {
+            mostrarerror: false,
+            clientes: {
+                correo: "",
+                passwordd: ""
+            },
+            },
+        methods: {
+            inicioses: function () {
+    var params = new URLSearchParams();
+     params.append('correo', this.clientes.correo);
+    params.append('passwordd', this.clientes.passwordd);
+                axios.post('/controller/iniciarsesion.php', params)
+                    .then((response) => {
+                        this.mostrarerror = !response.data.acceso;
+                        if (response.data.acceso) {
+                            window.location = "/";
+
+                        }
+
+
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
+            }
+        }
+        // },
+        // methods: {
+        //     inicioses: function () {
+        //         var params = new URLSearchParams();
+        //         params.append('correo', this.clientes.correo);
+        //         params.append('passwordd', this.clientes.passwordd);
+
+        //         axios.post('/controller/iniciarsesion.php', params)
+        //             .then(function (response) { console.log(response); })
+        //             .catch(function (error) { console.log(error); })
+        //     }
+        // }
+
+    })
+
+</script>
+
 </body>
 
 </html>
