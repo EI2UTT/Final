@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="estilos/diseño-stickers.css">
-    <title>Stickers</title>
+    <link rel="stylesheet" href="estilos/diseño-termos.css">
+    <title>Termos</title>
 </head>
 
 <body>
@@ -59,8 +59,11 @@
                     <section class="item">Recuerda iniciar sesión para empezar a trabajar con nosotros</section>
                 </div>
                 <div>
-                    <section class="item2">Stickers</section>
+                    <section class="item2">Termos</section>
                 </div>
+
+
+
                 <form>
                     <div class="container row align-items-start">
                         <div class="mb-3 row">
@@ -109,100 +112,109 @@
                         </div>
                     </div>
 
+
+
+
+
+
                     <div class="card-group" id="invitac">
-                        <?php include_once("../public/controller/mosstickers.php"); ?>
-                        <?php foreach ($diseñosproducto as $producto) { ?>
-                            <div class="card" style="width: 18rem;">
-                                <img src="estilos/imagenes/stickercump.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?php echo $producto->nombredispro ?></h5>
-                                    <label for="Cantidadinvita" class="form-label">Cantidad</label>
-                                    <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
-                                    <br>
-                                    <a href="#" class="btn btn-primary">Añadir a carrito</a>
-                                </div>
+                        <div class="card-group" id="invitac">
+                            <?php include_once("../public/controller/mostermos.php"); ?>
+                            <?php foreach ($diseñosproducto as $producto) { ?>
+                                <div class="card" style="width: 18rem;">
+                                    <img src="estilos/imagenes/stickercump.png" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo $producto->nombredispro ?></h5>
+                                        <label for="Cantidadinvita" class="form-label">Cantidad</label>
+                                        <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
+                                        <br>
+                                        <a href="#" class="btn btn-primary">Añadir a carrito</a>
+                                    </div>
 
-                            </div>
-                        <?php } ?>
-                    </div>
-                </form>
-                <footer class="text-center text-lg-start bg-light text-muted">
-                    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-                        <div class="me-5 d-none d-lg-block">
-                            <span>Mantente en contacto con nosotros:</span>
-                        </div>
-                    </section>
-
-                    <section class="">
-                        <div class="container text-center text-md-start mt-5">
-                            <div class="row mt-3">
-                                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                                    <h6 class="text-uppercase fw-bold mb-4">
-                                        <i class="fas fa-gem me-3"></i>D'talles
-                                    </h6>
-                                    <p>
-                                        Aqui podras encontrar todo tipo de productos y servicios para tu fiesta o evento.
-                                    </p>
                                 </div>
-                                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                                    <h6 class="text-uppercase fw-bold mb-4">
-                                        Links
-                                    </h6>
-                                    <p>
-                                        <a href="index.html" class="text-reset">Inicio</a>
-                                    </p>
-                                    <p>
-                                        <a href="servicios.html" class="text-reset">Servicios</a>
-                                    </p>
-                                    <p>
-                                        <a href="productos.html" class="text-reset">Productos</a>
-                                    </p>
-                                    <p>
-                                        <a href="carrito2.html" class="text-reset">Pedidos</a>
-                                    </p>
-                                </div>
-                                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                                    <h6 class="text-uppercase fw-bold mb-4">
-                                        Preguntas Frecuentes
-                                    </h6>
-                                    <p>
-                                        <a href="#!" class="text-reset">¿Como pedir?</a>
-                                    </p>
-                                    <p>
-                                        <a href="#!" class="text-reset">¿Como pagar?</a>
-                                    </p>
-                                </div>
-                                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                                    <h6 class="text-uppercase fw-bold mb-4">
-                                        Contacto
-                                    </h6>
-                                    <p><i class="fas fa-home me-3"></i> Torreon, Coahuila, Mexico</p>
-                                    <p>
-                                        <i class="fas fa-envelope me-3"></i> info@example.com
-                                    </p>
-                                    <p><i class="fas fa-phone me-3"></i> +52 871 328 2850</p>
-                                    <p><i class="fas fa-print me-3"></i> +52 871 710 6290</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                        © 2021 Copyright:D'talles,Inc.
-                        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Terminos</a>
-                        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Privacidad</a>
-                        <div class="social">
-                            <a href="https://www.facebook.com/dtallees" target="blank"><img src="estilos/imagenes/facebook.svg" alt="facebook"></a>
-                            <a href="https://www.instagram.com/dtallees/" target="blank"><img src="estilos/imagenes/instagram.svg" alt="instagram"></a>
+                            <?php } ?>
                         </div>
                     </div>
-                </footer>
-        </div>
-    </div>
+
+        </form>
+            <footer class="text-center text-lg-start bg-light text-muted">
+                <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+                    <div class="me-5 d-none d-lg-block">
+                        <span>Mantente en contacto con nosotros:</span>
+                    </div>
+                </section>
+
+                <section class="">
+                    <div class="container text-center text-md-start mt-5">
+                        <div class="row mt-3">
+                            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                <h6 class="text-uppercase fw-bold mb-4">
+                                    <i class="fas fa-gem me-3"></i>D'talles
+                                </h6>
+                                <p>
+                                    Aqui podras encontrar todo tipo de productos y servicios para tu fiesta o evento.
+                                </p>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <h6 class="text-uppercase fw-bold mb-4">
+                                    Links
+                                </h6>
+                                <p>
+                                    <a href="index.html" class="text-reset">Inicio</a>
+                                </p>
+                                <p>
+                                    <a href="servicios.html" class="text-reset">Servicios</a>
+                                </p>
+                                <p>
+                                    <a href="productos.html" class="text-reset">Productos</a>
+                                </p>
+                                <p>
+                                    <a href="carrito2.html" class="text-reset">Pedidos</a>
+                                </p>
+                            </div>
+                            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                                <h6 class="text-uppercase fw-bold mb-4">
+                                    Preguntas Frecuentes
+                                </h6>
+                                <p>
+                                    <a href="#!" class="text-reset">¿Como pedir?</a>
+                                </p>
+                                <p>
+                                    <a href="#!" class="text-reset">¿Como pagar?</a>
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                                <h6 class="text-uppercase fw-bold mb-4">
+                                    Contacto
+                                </h6>
+                                <p><i class="fas fa-home me-3"></i> Torreon, Coahuila, Mexico</p>
+                                <p>
+                                    <i class="fas fa-envelope me-3"></i> info@example.com
+                                </p>
+                                <p><i class="fas fa-phone me-3"></i> +52 871 328 2850</p>
+                                <p><i class="fas fa-print me-3"></i> +52 871 710 6290</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                    © 2021 Copyright:D'talles,Inc.
+                    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Terminos</a>
+                    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Privacidad</a>
+                    <div class="social">
+                        <a href="https://www.facebook.com/dtallees" target="blank"><img src="estilos/imagenes/facebook.svg" alt="facebook"></a>
+                        <a href="https://www.instagram.com/dtallees/" target="blank"><img src="estilos/imagenes/instagram.svg" alt="instagram"></a>
+                    </div>
+                </div>
+            </footer>
+
     </DIV>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+
 
 
 
