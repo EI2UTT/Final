@@ -60,66 +60,46 @@
         </div>
         <section class="item">Tus servicios y productos</section>
         <div class="resto"></div>
-        <div class="container-fluid">
-            <div class="row">
-                <aside class="col-lg-9">
-                    <div class="card">
-                        <div class="table-responsive">
-                            <table class="table table-borderless table-shopping-cart">
-                                <thead class="text-muted">
-                                    <tr class="small text-uppercase">
-                                        <th scope="col">Producto</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <figure class="itemside align-items-center">
-                                                <div class="aside"><img src="..." class="img-sm"></div>
-                                                <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">Titulo</a>
-                                                    <p class="text-muted small">Tipo:<br> Tamaño:</p>
-                                                </figcaption>
-                                            </figure>
-                                        </td>
-                                        <td class="text-right d-none d-md-block"><a href="" class="btn btn-light btn-round" data-abc="true"> Eliminar</a> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <figure class="itemside align-items-center">
-                                                <div class="aside"><img src="..." class="img-sm"></div>
-                                                <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">Titulo</a>
-                                                    <p class="text-muted small">Tipo:<br> Tamaño:</p>
-                                                </figcaption>
-                                            </figure>
-                                        </td>
-                                        <td class="text-right d-none d-md-block"><a href="" class="btn btn-light btn-round" data-abc="true"> Eliminar</a> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <figure class="itemside align-items-center">
-                                                <div class="aside"><img src="..." class="img-sm"></div>
-                                                <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">Titulo</a>
-                                                    <p class="text-muted small">Tipo:<br> Tamaño:</p>
-                                                </figcaption>
-                                            </figure>
-                                        </td>
-                                        <td class="text-right d-none d-md-block"><a href="" class="btn btn-light btn-round" data-abc="true"> Eliminar</a> </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </aside>
-                <aside class="col-lg-3">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Comprar </a> <a href="#" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continuar comprando</a>
-                        </div>
-                    </div>
-                </aside>
-            </div>
+        <div class="base" id="app2">
+                     <?php
+                     include_once "Conexion.php";
+                     $sentencia = $Conexion->query("SELECT pedidos.nomevento AS Nombre, pedidos.fechaevento AS Fecha, pedidos.lugarevento AS Lugar,pedidos.estatus AS Estatus, eventos.nomevento AS Evento FROM pedidos INNER JOIN eventos ON
+                     pedidos.evento = eventos.id_evento;");
+                     $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);?>
+		     <br>
+		      <table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Lugar</th>
+                    <th>Estatus</th>
+                    <th>Evento</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+                 foreach($pedidos as $Pedido){         
+               ?>
+				<tr>
+					<td><?php echo $pedidos->nomevento ?></td>
+					<td><?php echo $pedidos->fecha ?></td>
+					<td><?php echo $pedidos->lugarevento ?></td>
+					<td><?php echo $pedidos->estatus ?></td>
+					<td><?php echo $pedidos->precioVenta ?></td>
+					<td><?php echo $pedidos->evento ?></td>
+					<td><a class="btn btn-warning" href="<?php echo "editar.php?id=" . $producto->id?>"><i class="fa fa-edit"></i></a></td>
+					<td><a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $producto->id?>"><i class="fa fa-trash"></i></a></td>
+				</tr>
+				<?php } ?>
+			</tbody>
+		    </table>
         </div>
+	</div>
     </div>
+
+    
 
     <footer class="text-center text-lg-start bg-light text-muted">
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
