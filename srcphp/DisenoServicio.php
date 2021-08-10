@@ -19,4 +19,47 @@
         public $fotodisser = "";
         public $servicio = "";
         public $cantidadpersonas = "";
+
+
+    public function mostrarcentros()
+    {
+
+
+        $stmt = self::$pdo->prepare("select * from $this->table where servicio=1");
+
+        $stmt->execute();
+
+        $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+
+        return  json_encode($resultados);
+    }
+
+    public function mostrarsnacks()
+    {
+
+
+        $stmt = self::$pdo->prepare("select * from $this->table where servicio=2");
+
+        $stmt->execute();
+
+        $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+
+        return  json_encode($resultados);
+    }
+
+    public function mostrarbanquetes()
+    {
+
+
+        $stmt = self::$pdo->prepare("select * from $this->table where servicio=3");
+
+        $stmt->execute();
+
+        $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+
+        return  json_encode($resultados);
+    }
     }

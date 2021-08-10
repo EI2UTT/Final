@@ -109,21 +109,18 @@
                         </div>
                     </div>
 
-                    <div class="card-group" id="invitac">
-                        <?php include_once("../public/controller/mosstickers.php"); ?>
-                        <?php foreach ($diseñosproducto as $producto) { ?>
-                            <div class="card" style="width: 18rem;">
-                                <img src="estilos/imagenes/stickercump.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?php echo $producto->nombredispro ?></h5>
-                                    <label for="Cantidadinvita" class="form-label">Cantidad</label>
-                                    <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
-                                    <br>
-                                    <a href="#" class="btn btn-primary">Añadir a carrito</a>
-                                </div>
-
+                    <div class="card-group" id="app">
+                        <div class="card" style="width: 18rem;" V-for="producto in productos">
+                            <img src="estilos/imagenes/stickercump.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{producto.nombredispro}}</h5>
+                                <label for="Cantidadinvita" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
+                                <br>
+                                <a href="#" class="btn btn-primary">Añadir a carrito</a>
                             </div>
-                        <?php } ?>
+
+                        </div>
                     </div>
                 </form>
                 <footer class="text-center text-lg-start bg-light text-muted">
@@ -205,11 +202,32 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
-
-
-
 </body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            productos: [
 
+            ],
+        },
+        methods: {
+
+            CargarProductos: function() {
+                axios.post('controller/consultar_stickers.php')
+                    .then((response) => {
+                        this.productos = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.CargarProductos();
+
+        }
+    })
+</script>
 
 
 </html>

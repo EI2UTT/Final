@@ -9,11 +9,12 @@
         require("../../vendor/autoload.php");
   
         extract($_POST);
-        $c = new DisenoServicio();
-      
-      echo  ( $c->all());
+        $c = new DisenoProducto();
+        
+        
+      echo  ( $c->mostrarinvitaciones());
     
     } catch (Exception $e) {
            echo($e->getMessage());
     }
-//
+?>

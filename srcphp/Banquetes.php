@@ -30,4 +30,8 @@
         public $servicio = "";
         public $cantidadpersonas = "";
         public $fotodisser = "";
-    }
+    
+
+    
+ 
+    }  

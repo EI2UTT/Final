@@ -96,20 +96,15 @@
         </div>
 
 
-        <div class="base" id="app2">
+        <div class="base" id="app">
             <h4>SELECCIONA TU PEDIDO</h4>
-            <?php include_once("../public/controller/mossnacks.php"); ?>
-            <?php foreach ($diseñoservicio as $banquetes) { ?>
-                <div class="contenedor02" V-for="servicios in servicior">
-                    <div class="img-1"></div>
-                    <input class="cross" type="checkbox" value="" aria-label="...">
-                    <div class="M2"><?php echo $banquetes->nombredisser ?></div>
-                    <div class="M3"><?php echo $banquetes->descripcion ?></div>
-                    <div class="M4"><?php echo $banquetes->cantidadpersonas ?>Perosnas</div>
+            <div class="contenedor02" V-for="servicio in servicios">
+                <div class="img-1"></div>
+                <input class="cross" type="checkbox" value="" aria-label="...">
+                <div class="M2">{{servicio.nombredisser}} </div>
+                <div class="M3">{{servicio.descripcion}} </div>
 
-                </div>
-            <?php } ?>
-
+            </div>
         </div>
 
     </div>
@@ -185,7 +180,33 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            servicios: [
+
+            ],
+        },
+        methods: {
+
+            CargarServicios: function() {
+                axios.post('controller/consultar_snacks.php')
+                    .then((response) => {
+                        this.servicios = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.CargarServicios();
+
+        }
+    })
+</script>
 
 </html>

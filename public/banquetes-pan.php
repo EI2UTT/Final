@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    
+
     <div class="contenedor">
         <div class="fondo">
             <div class="banner">
@@ -62,7 +62,7 @@
             </section>
 
         </div>
-       
+
         <div class="sel-per">
             <div class="div03">
                 <h5 id="title03">Selecciona la cantidad de personas:</h5>
@@ -86,30 +86,29 @@
                 </label>
             </div>
         </div>
-        <div></div>
         <div class="agreg">
             <div class="div02">
                 <h5 id="title04">Presiona para agregar al carrito</h5>
             </div>
             <button type="button" class="btn btn-primary btn-lg">Agregar</button>
         </div>
-            
-        </div>
-        
+
+
         <div class="base" id="app">
             <h4>Selecciona tu pedido</h4>
-             <div class="contenedor02" v-for="servicio in servicios">
+            <div class="contenedor02" v-for="servicio in servicios">
                 <div class="img-1"></div>
                 <input class="cross" type="checkbox" value="" aria-label="...">
-                <div  class="M2">{{servicio.nombredisser}} </div>
+                <div class="M2">{{servicio.nombredisser}} </div>
                 <div class="M3">{{servicio.descripcion}} </div>
-                <!-- <div class="M4"></div> -->
-</div>
+
+            </div>
         </div>
+    </div>
 
 
     </div>
-    
+
 
 
     <footer class="text-center text-lg-start bg-light text-muted">
@@ -183,46 +182,35 @@
             </div>
         </div>
     </footer>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 <script>
-  var app =new Vue({
-      el:'#app',
-      data:{
-          servicios:[
-              
-          ],
-      },
-      methods:{
-          enviarDatos:function(){
-            var params =new URLSearchParams();
-              params.append('nomcliente', this.clientes.nomcliente);
-              params.append('telefono', this.clientes.telefono);
-              params.append('correo', this.clientes.correo);
-              params.append('passwordd', this.clientes.passwordd);
+    var app = new Vue({
+        el: '#app',
+        data: {
+            servicios: [
 
-              axios.post('controller/insertarcliente.php', params)
-              .then(function(response)
-              {console.log(response);})
-              .catch(function(error){console.log(error);})
-          },
-          CargarServicios:function(){
-           axios.post('controller/todosloservicios.php')
-          .then((response)=>
-              {this.servicios=response.data})
-      },
-     
-  },
-  
-     created:function()
-        {
-            this.CargarServicios();
+            ],
+        },
+        methods: {
             
+            CargarServicios: function() {
+                axios.post('controller/consultar_banquetes.php')
+                    .then((response) => {
+                        this.servicios = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.CargarServicios();
+
         }
     })
 </script>
+
 </html>
