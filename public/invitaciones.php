@@ -107,20 +107,19 @@
                 </div>
             </div>
 
-
-
-
-            <div class="card-group" id="app">
-                <div class="card" style="width: 18rem;" V-for="producto in productos">
-                    <img src="estilos/imagenes/stickercump.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{producto.nombredispro}}</h5>
-                        <label for="Cantidadinvita" class="form-label">Cantidad</label>
-                        <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
-                        <br>
-                        <a href="#" class="btn btn-primary">Añadir a carrito</a>
+            <div class="row row-cols-1 row-cols-md-3 g-4 overflow-scroll" id="app">
+                <div class="col" V-for="producto in productos">
+                    <div class="card h-70">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{producto.nombredispro}}</h5>
+                            <label for="Cantidadinvita" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">Añadir a carrito</a>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </form>

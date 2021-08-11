@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -51,54 +51,300 @@
             <div class="column auto align items center justify-content-center"></div>
         </section>
         <section>
-            <div class="grid">
-                <div class="base">
-                    <h4>BANQUETES</h4>
-                    <div class="contenedor02">
-                        <div class="img-1"></div>
-                        <input class="cross" type="checkbox" value="" aria-label="...">
-                        <div class="M2">MENU A</div>
-                        <div class="M3">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam earum necessitatibus facilis alias blanditiis dolorem aperiam cumque numquam, voluptate enim ex et quas beatae perspiciatis in quo aliquam nobis. Ab!</p>
-                        </div>
-                    </div>
-                    <div class="contenedor02">
-                        <div class="img-1"></div>
-                        <input class="cross" type="checkbox" value="" aria-label="...">
-                        <div class="M2">MENU B</div>
-                        <div class="M3">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam earum necessitatibus facilis alias blanditiis dolorem aperiam cumque numquam, voluptate enim ex et quas beatae perspiciatis in quo aliquam nobis. Ab!</p>
-                        </div>
-                    </div>
-                    <div class="contenedor02">
-                        <div class="img-1"></div>
-                        <input class="cross" type="checkbox" value="" aria-label="...">
-                        <div class="M2">MENU C</div>
-                        <div class="M3">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam earum necessitatibus facilis alias blanditiis dolorem aperiam cumque numquam, voluptate enim ex et quas beatae perspiciatis in quo aliquam nobis. Ab!</p>
+            <!-- Navegador de estados -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist" style=" background-color: white; border-color: blueviolet;">
+                <li class="nav-item " role="presentation">
+                    <button class="nav-link active" id="servicios-tab" data-bs-toggle="tab" data-bs-target="#servicios" type="button" role="tab" aria-controls="home" aria-selected="true">Servicios</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="productos-tab" data-bs-toggle="tab" data-bs-target="#productos" type="button" role="tab" aria-controls="profile" aria-selected="false">Productos</button>
+                </li>
+            </ul>
 
+            <!-- Paginas paneles -->
+            <div class="tab-content">
+                <!--Servicios-->
+                <div class="tab-pane active" id="servicios" role="tabpanel" aria-labelledby="servicios-tab">
+                    <!-- Navegador de servicios -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist" style=" background-color: white; border-color: blueviolet;">
+                        <li class="nav-item " role="presentation">
+                            <button class="nav-link active" id="banquetes-tab" data-bs-toggle="tab" data-bs-target="#banquetes" type="button" role="tab" aria-controls="home" aria-selected="true">BANQUETES</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="centros-tab" data-bs-toggle="tab" data-bs-target="#centros" type="button" role="tab" aria-controls="profile" aria-selected="false">CENTROS DE MESAS</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="snacks-tab" data-bs-toggle="tab" data-bs-target="#snacks" type="button" role="tab" aria-controls="profile" aria-selected="false">MESAS DE SNACKS</button>
+                        </li>
+                    </ul>
+                    <!-- servicios paneles -->
+                    <div class="tab-content">
+                        <!--BANQUETES-->
+                        <div class="tab-pane active" id="banquetes" role="tabpanel" aria-labelledby="banquetes-tab">
+                            <div class="base" id="app">
+                                <div class="contenedor02" v-for="servicio in servicios">
+                                    <div class="img-1"></div>
+                                    <input class="cross" type="checkbox" value="" aria-label="...">
+                                    <div class="M2">{{servicio.nombredisser}} </div>
+                                    <div class="M3">{{servicio.descripcion}} </div>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contenedor02">
-                        <div class="img-1"></div>
-                        <input class="cross" type="checkbox" value="" aria-label="...">
-                        <div class="M2">MENU D</div>
-                        <div class="M3">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam earum necessitatibus facilis alias blanditiis dolorem aperiam cumque numquam, voluptate enim ex et quas beatae perspiciatis in quo aliquam nobis. Ab!</p>
+                        <!--CENTROS DE MESA-->
+                        <div class="tab-pane" id="centros" role="tabpanel" aria-labelledby="centros-tab">
+                            <div class="base" id="app2">
+                                <div class="contenedor02" V-for="servicio in servicios">
+                                    <div class="img-1"></div>
+                                    <input class="cross" type="checkbox" value="" aria-label="...">
+                                    <div class="M2">{{servicio.nombredisser}} </div>
+                                    <div class="M3">{{servicio.descripcion}} </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--MESA DE SNACKS-->
+                        <div class="tab-pane" id="snacks" role="tabpanel" aria-labelledby="snacks-tab">
+                            <!-- Navegador de servicios -->
+                            <div class="base" id="app3">
+                                <div class="contenedor02" V-for="servicio in servicios">
+                                    <div class="img-1"></div>
+                                    <input class="cross" type="checkbox" value="" aria-label="...">
+                                    <div class="M2">{{servicio.nombredisser}} </div>
+                                    <div class="M3">{{servicio.descripcion}} </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="agreg">
-                    <div class="div02">
-                        <h6 id="title04">¿Desea eliminar?</h6>
+                <!--Productos-->
+                <div class="tab-pane" id="productos" role="tabpanel" aria-labelledby="productos-tab">
+
+                    <!-- Navegador de productos -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist" style=" background-color: white; border-color: blueviolet;">
+                        <li class="nav-item " role="presentation">
+                            <button class="nav-link active" id="invitaciones-tab" data-bs-toggle="tab" data-bs-target="#invitaciones" type="button" role="tab" aria-controls="home" aria-selected="true">INVITACIONES</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="stickers-tab" data-bs-toggle="tab" data-bs-target="#stickers" type="button" role="tab" aria-controls="profile" aria-selected="false">STICKERS</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="termos-tab" data-bs-toggle="tab" data-bs-target="#termos" type="button" role="tab" aria-controls="profile" aria-selected="false">TERMOS</button>
+                        </li>
+                    </ul>
+                    <!--paneles productos-->
+                    <div class="tab-content">
+                        <!--INVITACIONES-->
+                        <div class="tab-pane active" id="invitaciones" role="tabpanel" aria-labelledby="invitaciones-tab">
+                            <div class="base" id="app4">
+                                <div class="contenedor02" V-for="producto in productos">
+                                    <div class="img-1"></div>
+                                    <input class="cross" type="checkbox" value="" aria-label="...">
+                                    <div class="M2">{{producto.nombredispro}} </div>
+                                    <div class="M3">{{producto.descripcion}} </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--STICKERS-->
+                        <div class="tab-pane" id="stickers" role="tabpanel" aria-labelledby="stickers-tab">
+                            <div class="base" id="app5">
+                                <div class="contenedor02" V-for="producto in productos">
+                                    <div class="img-1"></div>
+                                    <input class="cross" type="checkbox" value="" aria-label="...">
+                                    <div class="M2">{{producto.nombredispro}} </div>
+                                    <div class="M3">{{producto.descripcion}} </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--TERMOS-->
+                        <div class="tab-pane" id="termos" role="tabpanel" aria-labelledby="termos-tab">
+                            <div class="base" id="app6">
+                                <div class="contenedor02" V-for="producto in productos">
+                                    <div class="img-1"></div>
+                                    <input class="cross" type="checkbox" value="" aria-label="...">
+                                    <div class="M2">{{producto.nombredispro}} </div>
+                                    <div class="M3">{{producto.descripcion}} </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg">Eliminar</button>
+                </div>
+                <div class="grid">
+                    <div class="agreg">
+                        <div class="div02">
+                            <h6 id="title04">¿Desea eliminar?</h6>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-lg">Eliminar</button>
+                    </div>
                 </div>
             </div>
-        </section>
+    </div>
 
 
     </DIV>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
+<!--BANQUETES CONSULTA-->
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            servicios: [
+
+            ],
+        },
+        methods: {
+
+            CargarServicios: function() {
+                axios.post('controller/consultar_banquetes.php')
+                    .then((response) => {
+                        this.servicios = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.CargarServicios();
+
+        }
+    })
+</script>
+<!--CENTROS CONSULTA-->
+<script>
+    var app2 = new Vue({
+        el: '#app2',
+        data: {
+            servicios: [
+
+            ],
+        },
+        methods: {
+            CargarServicios: function() {
+                axios.post('controller/consulta_centros.php')
+                    .then((response) => {
+                        this.servicios = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.CargarServicios();
+
+        }
+    })
+</script>
+<!--SNACKS CONSULTA-->
+<script>
+    var app3 = new Vue({
+        el: '#app3',
+        data: {
+            servicios: [
+
+            ],
+        },
+        methods: {
+
+            CargarServicios: function() {
+                axios.post('controller/consultar_snacks.php')
+                    .then((response) => {
+                        this.servicios = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.CargarServicios();
+
+        }
+    })
+</script>
+<!--INVITACIONES CONSULTA-->
+<script>
+    var app4 = new Vue({
+        el: '#app4',
+        data: {
+            productos: [
+
+            ],
+        },
+        methods: {
+
+            CargarProductos: function() {
+                axios.post('controller/consultar_invitaciones.php')
+                    .then((response) => {
+                        this.productos = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.CargarProductos();
+
+        }
+    })
+</script>
+<!--STICKERS CONSULTA-->
+<script>
+    var app5 = new Vue({
+        el: '#app5',
+        data: {
+            productos: [
+
+            ],
+        },
+        methods: {
+
+            CargarProductos: function() {
+                axios.post('controller/consultar_stickers.php')
+                    .then((response) => {
+                        this.productos = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.CargarProductos();
+
+        }
+    })
+</script>
+<!--TERMOS CONSULTA-->
+<script>
+    var app6 = new Vue({
+        el: '#app6',
+        data: {
+            productos: [
+
+            ],
+        },
+        methods: {
+
+            CargarProductos: function() {
+                axios.post('controller/consultar_termos.php')
+                    .then((response) => {
+                        this.productos = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.CargarProductos();
+
+        }
+    })
+</script>
 
 </html>
