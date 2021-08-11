@@ -1,9 +1,9 @@
 <?php
     
     namespace proyecto;
-    
-   
-    use PDO;
+
+use Exception;
+use PDO;
     use proyecto\Conexion;
     use function json_encode;
 

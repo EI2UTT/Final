@@ -1,9 +1,9 @@
 <?php
     
     namespace proyecto;
- 
 
-    use PDO;
+use Exception;
+use PDO;
     use function json_encode;
 
     
@@ -32,7 +32,7 @@
 
         return  json_encode($resultados);
     }
-        public function mostrarinvitaciones()
+    public function mostrarinvitaciones()
     {
 
 
@@ -58,4 +58,16 @@
 
         return  json_encode($resultados);
     }
+
+    public function eliminardestickers($id)
+        {
+        try {
+            $cid = $this->id != "" ? $this->id : "id";
+            $stmt = self::$pdo->prepare("delete from $this->table where $cid=:id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+        } catch (Exception $e) {
+            return $e;
+        }
+        }
     }
