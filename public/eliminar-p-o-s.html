@@ -84,7 +84,7 @@
                             <div class="base" id="app">
                                 <div class="contenedor02" v-for="servicio in servicios">
                                     <div class="img-1"></div>
-                                    <input class="cross" type="checkbox" value="" aria-label="...">
+                                    <input class="cross" type="button" @click="btnborrar(servicio.nombredisser)" aria-label="... ">
                                     <div class="M2">{{servicio.nombredisser}} </div>
                                     <div class="M3">{{servicio.descripcion}} </div>
 
@@ -96,7 +96,7 @@
                             <div class="base" id="app2">
                                 <div class="contenedor02" V-for="servicio in servicios">
                                     <div class="img-1"></div>
-                                    <input class="cross" type="checkbox" value="" aria-label="...">
+                                    <input class="cross" type="button" @click="btnborrar(servicio.nombredisser)" aria-label="... ">
                                     <div class="M2">{{servicio.nombredisser}} </div>
                                     <div class="M3">{{servicio.descripcion}} </div>
 
@@ -110,7 +110,7 @@
                             <div class="base" id="app3">
                                 <div class="contenedor02" V-for="servicio in servicios">
                                     <div class="img-1"></div>
-                                    <input class="cross" type="checkbox" value="" aria-label="...">
+                                    <input class="cross" type="button" @click="btnborrar(servicio.nombredisser)" aria-label="... ">
                                     <div class="M2">{{servicio.nombredisser}} </div>
                                     <div class="M3">{{servicio.descripcion}} </div>
 
@@ -131,7 +131,7 @@
                             <button class="nav-link" id="stickers-tab" data-bs-toggle="tab" data-bs-target="#stickers" type="button" role="tab" aria-controls="profile" aria-selected="false">STICKERS</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="termos-tab" data-bs-toggle="tab" data-bs-target="#termos" type="button" role="tab" aria-controls="profile" aria-selected="false">TERMOS</button>
+                            <button class="nav-link" id="termo-tab" data-bs-toggle="tab" data-bs-target="#termo" type="button" role="tab" aria-controls="profile" aria-selected="false">TERMO</button>
                         </li>
                     </ul>
                     <!--paneles productos-->
@@ -141,7 +141,7 @@
                             <div class="base" id="app4">
                                 <div class="contenedor02" V-for="producto in productos">
                                     <div class="img-1"></div>
-                                    <input class="cross" type="checkbox" value="" aria-label="...">
+                                    <input class="cross" type="button" @click="btnborrar(producto.nombredispro)" aria-label="... ">
                                     <div class="M2">{{producto.nombredispro}} </div>
                                     <div class="M3">{{producto.descripcion}} </div>
 
@@ -151,23 +151,23 @@
                         <!--STICKERS-->
                         <div class="tab-pane" id="stickers" role="tabpanel" aria-labelledby="stickers-tab">
                             <div class="base" id="app5">
-                                <div class="contenedor02" V-for="producto in productos">
+                                <div class="contenedor02" V-for="(producto, indice) in productos">
                                     <div class="img-1"></div>
-                                    <input class="cross" type="checkbox" value="" aria-label="...">
-                                    <div class="M2">{{producto.nombredispro}} </div>
-                                    <div class="M3">{{producto.descripcion}} </div>
+                                    <input class="cross" type="button" @click="btnborrar(producto.nombredispro)" aria-label="... ">
+                                    <div class="M2 ">{{producto.nombredispro}} </div>
+                                    <div class="M3 ">{{producto.descripcion}} </div>
 
                                 </div>
                             </div>
                         </div>
                         <!--TERMOS-->
-                        <div class="tab-pane" id="termos" role="tabpanel" aria-labelledby="termos-tab">
-                            <div class="base" id="app6">
-                                <div class="contenedor02" V-for="producto in productos">
-                                    <div class="img-1"></div>
-                                    <input class="cross" type="checkbox" value="" aria-label="...">
-                                    <div class="M2">{{producto.nombredispro}} </div>
-                                    <div class="M3">{{producto.descripcion}} </div>
+                        <div class="tab-pane " id="termo" role="tabpanel" aria-labelledby="termo-tab">
+                            <div class="base " id="app6">
+                                <div class="contenedor02 " V-for="producto in productos ">
+                                    <div class="img-1 "></div>
+                                    <input class="cross" type="button" @click="btnborrar(producto.nombredispro)" aria-label="... ">
+                                    <div class="M2 ">{{producto.nombredispro}} </div>
+                                    <div class="M3 ">{{producto.descripcion}} </div>
 
                                 </div>
                             </div>
@@ -177,19 +177,14 @@
 
             </div>
 
-            <div class="grid" id="app5">
-                <div class="agreg">
-                    <div class="div02">
-                        <h6 id="title04">¿Desea eliminar?</h6>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-lg" @onclick>Eliminar</button>
-                </div>
-            </div>
+
 
     </DIV>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js "></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11 "></script>
+
 </body>
 <!--BANQUETES CONSULTA-->
 <script>
@@ -208,6 +203,34 @@
                         this.servicios = response.data
                     })
             },
+            eliminarservicio: function(nombredisser) {
+                axios.post('../srcphp/crud.php', {
+                        opcion: 1,
+                        nombredisser: nombredisser
+                    })
+                    .then(response => {
+                        this.CargarServicios();
+                    })
+            },
+            btnborrar: function(nombredisser) {
+                Swal.fire({
+                    title: 'Estas seguro de borrar: ' + nombredisser + ' ?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirButtonColor: '#d33',
+                    cacnelButtonColor: '#3885d6',
+                    confirmButtonText: 'Borrar'
+                }).then((result) => {
+                    if (result.value) {
+                        this.eliminarservicio(nombredisser);
+                        Swal.fire(
+                            'Eliminado!',
+                            'El servicio se a eliminado!',
+                            'success'
+                        )
+                    }
+                })
+            }
 
         },
 
@@ -233,6 +256,34 @@
                         this.servicios = response.data
                     })
             },
+            eliminarservicio: function(nombredisser) {
+                axios.post('../srcphp/crud.php', {
+                        opcion: 1,
+                        nombredisser: nombredisser
+                    })
+                    .then(response => {
+                        this.CargarServicios();
+                    })
+            },
+            btnborrar: function(nombredisser) {
+                Swal.fire({
+                    title: 'Estas seguro de borrar: ' + nombredisser + ' ?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirButtonColor: '#d33',
+                    cacnelButtonColor: '#3885d6',
+                    confirmButtonText: 'Borrar'
+                }).then((result) => {
+                    if (result.value) {
+                        this.eliminarservicio(nombredisser);
+                        Swal.fire(
+                            'Eliminado!',
+                            'El servicio se a eliminado!',
+                            'success'
+                        )
+                    }
+                })
+            }
 
         },
 
@@ -259,6 +310,35 @@
                         this.servicios = response.data
                     })
             },
+            eliminarservicio: function(nombredisser) {
+                axios.post('../srcphp/crud.php', {
+                        opcion: 1,
+                        nombredisser: nombredisser
+                    })
+                    .then(response => {
+                        this.CargarServicios();
+                    })
+            },
+            btnborrar: function(nombredisser) {
+                Swal.fire({
+                    title: 'Estas seguro de borrar: ' + nombredisser + ' ?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirButtonColor: '#d33',
+                    cacnelButtonColor: '#3885d6',
+                    confirmButtonText: 'Borrar'
+                }).then((result) => {
+                    if (result.value) {
+                        this.eliminarservicio(nombredisser);
+                        Swal.fire(
+                            'Eliminado!',
+                            'El servicio se a eliminado!',
+                            'success'
+                        )
+                    }
+                })
+            }
+
 
         },
 
@@ -285,6 +365,34 @@
                         this.productos = response.data
                     })
             },
+            eliminarproducto: function(nombredispro) {
+                axios.post('../srcphp/crud.php', {
+                        opcion: 3,
+                        nombredispro: nombredispro
+                    })
+                    .then(response => {
+                        this.CargarProductos();
+                    })
+            },
+            btnborrar: function(nombredispro) {
+                Swal.fire({
+                    title: 'Estas seguro de borrar: ' + nombredispro + ' ?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirButtonColor: '#d33',
+                    cacnelButtonColor: '#3885d6',
+                    confirmButtonText: 'Borrar'
+                }).then((result) => {
+                    if (result.value) {
+                        this.eliminarproducto(nombredispro);
+                        Swal.fire(
+                            'Eliminado!',
+                            'El producto se a eliminado!',
+                            'success'
+                        )
+                    }
+                })
+            }
 
         },
 
@@ -299,31 +407,60 @@
     var app5 = new Vue({
         el: '#app5',
         data: {
-            productos: [
-
-            ],
+            nombre: {
+                nombredispro: ""
+            },
+            productos: []
         },
         methods: {
-
             CargarProductos: function() {
                 axios.post('controller/consultar_stickers.php')
                     .then((response) => {
                         this.productos = response.data
                     })
             },
-            EliminarSticker: function() {
-                axios.post('controller/eliminar_stickers.php')
-                    .then((response) => {
-                        this.productos = response.data
+            FiltrarStickers: function() {
+                this.productos.filter(
+                    producto => {
+                        return producto.id
+                    }
+                )
+            },
+            eliminardestickers: function(nombredispro) {
+                axios.post('../srcphp/crud.php', {
+                        opcion: 3,
+                        nombredispro: nombredispro
                     })
+                    .then(response => {
+                        this.CargarProductos();
+                    })
+            },
+            btnborrar: function(nombredispro) {
+                Swal.fire({
+                    title: 'Estas seguro de borrar: ' + nombredispro + ' ?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirButtonColor: '#d33',
+                    cacnelButtonColor: '#3885d6',
+                    confirmButtonText: 'Borrar'
+                }).then((result) => {
+                    if (result.value) {
+                        this.eliminardestickers(nombredispro);
+                        Swal.fire(
+                            'Eliminado!',
+                            'El producto se a eliminado!',
+                            'success'
+                        )
+                    }
+                })
             }
-
         },
-
+        computed: {},
         created: function() {
             this.CargarProductos();
 
         }
+
     })
 </script>
 <!--TERMOS CONSULTA-->
@@ -343,6 +480,34 @@
                         this.productos = response.data
                     })
             },
+            eliminarproducto: function(nombredispro) {
+                axios.post('../srcphp/crud.php', {
+                        opcion: 3,
+                        nombredispro: nombredispro
+                    })
+                    .then(response => {
+                        this.CargarProductos();
+                    })
+            },
+            btnborrar: function(nombredispro) {
+                Swal.fire({
+                    title: 'Estas seguro de borrar: ' + nombredispro + ' ?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirButtonColor: '#d33',
+                    cacnelButtonColor: '#3885d6',
+                    confirmButtonText: 'Borrar'
+                }).then((result) => {
+                    if (result.value) {
+                        this.eliminarproducto(nombredispro);
+                        Swal.fire(
+                            'Eliminado!',
+                            'El producto se a eliminado!',
+                            'success'
+                        )
+                    }
+                })
+            }
 
         },
 

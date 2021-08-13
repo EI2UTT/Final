@@ -59,15 +59,5 @@ use PDO;
         return  json_encode($resultados);
     }
 
-    public function eliminardestickers($id)
-        {
-        try {
-            $cid = $this->id != "" ? $this->id : "id";
-            $stmt = self::$pdo->prepare("delete from $this->table where $cid=:id_dis_pro AND producto=1");
-            $stmt->bindParam(":id_dis_pro", $id);
-            $stmt->execute();
-        } catch (Exception $e) {
-            return $e;
-        }
-        }
+    
     }

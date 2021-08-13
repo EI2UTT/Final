@@ -110,5 +110,14 @@ use PDO;
             }
             return  json_encode($resultados[0]);
         }
-        
+        public function eliminardestickers($nombredispro){
+        try {
+            $cid = $this->nombredispro != "" ? $this->nombredispro : "nombredispro";
+            $stmt = self::$pdo->prepare("delete from diseñoproductos where $cid=:nombredispro");
+            $stmt->bindParam(":nombredispro", $nombredispro);
+            $stmt->execute();
+        } catch (Exception $e) {
+            return $e;
+        }
+     }
     }
