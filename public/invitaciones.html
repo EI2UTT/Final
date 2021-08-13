@@ -60,66 +60,17 @@
             <section class="item2">Invitaciones</section>
         </div>
         <form>
-            <div class="container row align-items-start">
-                <div class="mb-3 row">
-                    <label for="Tipoevento" class=" mb-3 form-label">Tipo de evento</label> <br>
-                    <select class="form-select" id="tipoevento">
-                        <option selected>Selecciona uno</option>
-                        <option value="1">Cumpleaños</option>
-                        <option value="2">XV Años</option>
-                        <option value="3">Boda</option>
-                        <option value="4">Primera comunión</option>
-                        <option value="5">Bautizo</option>
-                        <option value="6">Baby shower</option>
-                        <option value="7">Reunion formal</option>
-                    </select>
-                </div>
+            <div class="card-group" id="app">
+                <div class="card" style="width: 18rem;" V-for="producto in productos">
+                    <img src="estilos/imagenes/stickercump.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{producto.nombredispro}}</h5>
+                        <label for="Cantidadinvita" class="form-label">Cantidad</label>
+                        <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
+                        <br>
+                        <a href="#" class="btn btn-primary">Añadir a carrito</a>
+                    </div>
 
-                <div>
-                    <div class="mb-3 row">
-                        <label id="fech" for="Fechaevento" class=" mb-3 form-label">Fecha del evento</label>
-                        <input type="date" min="datetime-local" id="fecha">
-                    </div>
-                    <div class="mb-3 row">
-                        <label id="leve" for="Lugarevento" class=" mb-3 form-label">Lugar del evento</label>
-                        <input type="text" class="form-control" id="lugarevento" cols="50" rows="5">
-                    </div>
-                    <div>
-                        <div class="mb-3 row">
-                            <label id="neve" for="Nombrevento" class=" mb-3 form-label">Nombre del evento </label>
-                            <input type="text" class=" mb-3 form-control" data-toggle="popover" data-trigger="focus" data-content="Aquí también puede ir el nombre del festejad@" id="nombrevento" cols="50" rows="2">
-                        </div>
-                    </div>
-                    <div class="container row align-items-start">
-                        <label id="fra" for="Frase" class="mb-3 form-label">Frase conmemorativa</label>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Si</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">No</label>
-                        </div>
-                        <div class=" mb-3 row">
-                            <textarea class="form-control" id="nombrevento" cols="50" rows="3"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row row-cols-1 row-cols-md-3 g-4 overflow-scroll" id="app">
-                <div class="col" V-for="producto in productos">
-                    <div class="card h-70">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{producto.nombredispro}}</h5>
-                            <label for="Cantidadinvita" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-primary">Añadir a carrito</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </form>
