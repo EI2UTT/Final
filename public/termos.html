@@ -68,7 +68,7 @@
                     
                     <div class="card-group" id="app">
                         <div class="card" style="width: 18rem;" V-for="producto in productos">
-                            <img src="estilos/imagenes/stickercump.png" class="card-img-top" alt="...">
+                            <td><img :src="'controller/imagenes/'+producto.fotodispro" class="card-img-top" alt="..."></td>
                             <div class="card-body">
                                 <h5 class="card-title">{{producto.nombredispro}}</h5>
                                 <label for="Cantidadinvita" class="form-label">Cantidad</label>
