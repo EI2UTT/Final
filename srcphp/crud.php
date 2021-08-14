@@ -10,6 +10,8 @@ $conexion = $objeto->Conectar();
 
 $_POST = json_decode(file_get_contents("php://input"), true);
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
+$estado = (isset($_POST['estado'])) ? $_POST['estado'] : '';
+$id_pedido= (isset($_POST['id_pedido'])) ? $_POST['id_pedido'] : '';
 $nombredispro = (isset($_POST['nombredispro'])) ? $_POST['nombredispro'] : '';
 $nombredisser = (isset($_POST['nombredisser'])) ? $_POST['nombredisser'] : '';
 
@@ -20,14 +22,20 @@ switch($opcion){
         $resultado->execute();
         break; 
     case 2:
-        $consulta = "DELETE FROM diseñoproductos WHERE nombredispro='$nombredispro' ";
+        $consulta = "UPDATE pedidos SET estado='$estado' WHERE id='$id_pedido' ";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
-        break; 
+        $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        break;    
     case 3:
+        try{
         $consulta = "DELETE FROM diseñoproductos WHERE nombredispro='$nombredispro' ";		
         $resultado = $conexion->prepare($consulta);
-        $resultado->execute();                           
+        $resultado->execute(); 
+        }
+        catch(Exception $e){
+            return $e;
+        }                          
         break;         
     case 4:
         $consulta = "DELETE FROM diseñoproductos WHERE nombredispro='$nombredispro' ";

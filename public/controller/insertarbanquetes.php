@@ -4,11 +4,7 @@
     
     use Exception;
     
-    
-    namespace proyecto;
-    
-    use Exception;
-    
+  
 
    try{
         require("../../vendor/autoload.php");

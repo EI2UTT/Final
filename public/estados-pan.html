@@ -80,49 +80,49 @@
             <!-- Paginas paneles -->
             <div class="tab-content">
                 <div class="tab-pane active" id="pendiente" role="tabpanel" aria-labelledby="pendiente-tab">
-                    <div class="pend">
+                    <div class="pend" id="app">
                         <h3 class="title04">PENDIENTES</h3>
-                        <div class="contenedor02" id="bl">
+                        <div class="contenedor02" id="bl" v-for="pedido in pedidos" @click="">
                             <div class="img-1"></div>
                             <img class="btn acept btn-primary" data-bs-toggle="modal" src="estilos/imagenes/a.svg" alt="" role="button" href="#Terminar-Registro">
                             <img class="btn cross btn-primary" data-bs-toggle="modal" src="estilos/imagenes/x.svg" alt="" role="button" href="#Cancelar-Registro">
 
-                            <div class="M2">PRODUCTO</div>
-                            <div class="M3">PEDIDO#</div>
-                            <div class="M4">CANTIDAD</div>
-                            <div class="M21">EVENTO</div>
+                            <div class="M2"></div>
+                            <div class="M3">N° Pedido {{pedido.id_pedido}}</div>
+                            <div class="M4">{{pedido.fechaevento}}</div>
+                            <div class="M21">{{pedido.estatus}}</div>
                             <div class="M31">TIPO SER</div>
-                            <div class="M41">DIRECCION</div>
+                            <div class="M41">{{pedido.lugarevento}}</div>
                         </div>
                     </div>
                 </div>
+
                 <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="term">
+                    <div class="term" id="app2">
                         <h3 class="title04">TERMINADOS</h3>
-                        <div class="contenedor02" id="green">
+                        <div class="contenedor02" id="green" v-for="pedido in pedidos">
                             <div class="img-1"></div>
                             <img class="btn cross btn-primary" data-bs-toggle="modal" src="estilos/imagenes/x.svg" alt="" role="button" href="#Eliminar-Registro">
-                            <div class="M2">PRODUCTO</div>
-                            <div class="M3">PEDIDO#</div>
-                            <div class="M4">CANTIDAD</div>
-                            <div class="M21">EVENTO</div>
+                            <div class="M2"></div>
+                            <div class="M3">N° Pedido {{pedido.id_pedido}}</div>
+                            <div class="M4">{{pedido.fechaevento}}</div>
+                            <div class="M21">{{pedido.estatus}}</div>
                             <div class="M31">TIPO SER</div>
-                            <div class="M41">DIRECCION</div>
+                            <div class="M41">{{pedido.lugarevento}}</div>
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                    <div class="cancel">
+                    <div class="cancel" id="app3">
                         <h3 class="title04">CANCELADOS</h5>
-                            <div class="contenedor02">
+                            <div class="contenedor02" v-for="pedido in pedidos">
                                 <div class="img-1"></div>
                                 <img class="btn cross btn-primary" data-bs-toggle="modal" src="estilos/imagenes/x.svg" alt="" role="button" href="#Eliminar-Registro">
-                                <div class="M2">PRODUCTO</div>
-                                <div class="M3">PEDIDO#</div>
-                                <div class="M4">CANTIDAD</div>
-                                <div class="M21">EVENTO</div>
+                                <div class="M3">N° Pedido {{pedido.id_pedido}}</div>
+                                <div class="M4">{{pedido.fechaevento}}</div>
+                                <div class="M21">{{pedido.estatus}}</div>
                                 <div class="M31">TIPO SER</div>
-                                <div class="M41">DIRECCION</div>
+                                <div class="M41">{{pedido.lugarevento}}</div>
                             </div>
                     </div>
                 </div>
@@ -208,7 +208,104 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js "></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11 "></script>
 </body>
+<template id="my-template">
+  <swal-title>
+    Save changes to "Untitled 1" before closing?
+  </swal-title>
+  <swal-icon type="warning" color="red"></swal-icon>
+  <swal-button type="confirm">
+    Save As
+  </swal-button>
+  <swal-button type="cancel">
+    Cancel
+  </swal-button>
+  <swal-button type="deny">
+    Close without Saving
+  </swal-button>
+  <swal-param name="allowEscapeKey" value="false" />
+  <swal-param
+    name="customClass"
+    value='{ "popup": "my-popup" }' />
+</template>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            pedidos: [
+
+            ],
+        },
+        methods: {
+
+            Cargarpedidos: function() {
+                axios.post('controller/consultar_pedidosNove.php')
+                    .then((response) => {
+                        this.pedidos = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.Cargarpedidos();
+
+        }
+    })
+</script>
+
+<script>
+    var app2 = new Vue({
+        el: '#app2',
+        data: {
+            pedidos: [
+
+            ],
+        },
+        methods: {
+
+            Cargarpedidos: function() {
+                axios.post('controller/consultar_pedidosve.php')
+                    .then((response) => {
+                        this.pedidos = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.Cargarpedidos();
+
+        }
+    })
+</script>
+<script>
+    var app3 = new Vue({
+        el: '#app3',
+        data: {
+            pedidos: [
+
+            ],
+        },
+        methods: {
+
+            Cargarpedidos: function() {
+                axios.post('controller/consultar_pedidoscan.php')
+                    .then((response) => {
+                        this.pedidos = response.data
+                    })
+            },
+
+        },
+
+        created: function() {
+            this.Cargarpedidos();
+
+        }
+    })
+</script>
 
 </html>

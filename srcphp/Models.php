@@ -110,7 +110,8 @@ use PDO;
             }
             return  json_encode($resultados[0]);
         }
-        public function eliminardestickers($nombredispro){
+        public function eliminardestickers($nombredispro)
+        {
         try {
             $cid = $this->nombredispro != "" ? $this->nombredispro : "nombredispro";
             $stmt = self::$pdo->prepare("delete from diseñoproductos where $cid=:nombredispro");
@@ -119,5 +120,37 @@ use PDO;
         } catch (Exception $e) {
             return $e;
         }
-     }
+        }
+        public function mostrarpedidos()
+        { 
+        try {
+            $cid = $this->nombredispro != "" ? $this->nombredispro : "nombredispro";
+            $stmt = self::$pdo->prepare("SELECT DISTINCT 
+            ped.id_pedido,
+             c.nomcliente,
+              ped.fechaevento,
+              ped.tituloevento,
+               ped.fraseprod,
+                e.nomevento,
+                ds.nombredisser,
+                dp.nombredispro
+                 FROM Pedidos AS ped 
+                 INNER JOIN disser_pedidos AS disser ON ped.id_pedido= disser.pedido 
+                 LEFT JOIN dispro_pedidos AS dispp ON ped.id_pedido=dispp.pedido 
+                 INNER JOIN clientes AS c ON ped.cliente=c.id_cliente 
+                 LEFT JOIN eventos AS e ON ped.evento=e.id_evento 
+                 LEFT JOIN diseñoservicios AS ds ON disser.servicio= ds.id_dis_ser 
+                 LEFT JOIN diseñoproductos AS dp ON dispp.producto=dp.id_dis_pro 
+                 LEFT JOIN servicios AS s ON ds.servicio=s.id_servicio 
+                 LEFT JOIN productos AS p ON dp.producto=p.id_producto
+                 WHERE ped.id_pedido = disser.pedido AND ped.id_pedido = dispp.pedido");
+            $stmt->bindParam(":nombredispro", $nombredispro);
+            $stmt->execute();
+            $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
+            return  json_encode($resultados);
+        } catch (Exception $e) {
+            return $e;
+        }
+        }
     }
+?>
