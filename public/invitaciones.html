@@ -68,7 +68,7 @@
                         <label for="Cantidadinvita" class="form-label">Cantidad</label>
                         <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
                         <br>
-                        <a href="#" class="btn btn-primary">Añadir a carrito</a>
+                        <a href="#" class="btn btn-primary" @click="btnagregar(producto.id_dis_pro,producto.nombredispro)">Añadir a carrito</a>
                     </div>
 
                 </div>
@@ -161,6 +161,8 @@
             productos: [
 
             ],
+            pedido: "1",
+            cantidad: "",
         },
         methods: {
 
@@ -170,6 +172,32 @@
                         this.productos = response.data
                     })
             },
+            Productoacarrito: function(id) {
+                axios.post('../srcphp/crud.php', {
+                    opcion: 4,
+                    pedido: this.pedido,
+                    producto: id,
+                    cantidad: this.cantidad
+                })
+
+            },
+            btnagregar: async function(id, nombre) {
+                Swal.fire({
+                    title: 'Quiere agregar el producto: ' + nombre + ' al carrito?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Aceptar'
+                }).then((result) => {
+                    if (result.value) {
+                        this.Productoacarrito(id);
+                        Swal.fire(
+                            'Agregado al carrito!',
+                            'El Producto se a agregado a su carrito!',
+                            'success'
+                        )
+                    }
+                })
+            }
 
         },
 

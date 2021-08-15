@@ -92,7 +92,21 @@
             </div>
             <button type="button" class="btn btn-primary btn-lg">Agregar</button>
         </div>
+        <form>
+            <div class="card-group" id="app">
+                <div class="card" style="width: 18rem;" V-for="producto in productos">
+                    <img src="" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{producto.nombredispro}}</h5>
+                        <label for="Cantidadinvita" class="form-label">Cantidad</label>
+                        <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
+                        <br>
+                        <a href="#" class="btn btn-primary">Añadir a carrito</a>
+                    </div>
 
+                </div>
+            </div>
+        </form>
 
         <div class="base" id="app">
             <h4>Selecciona tu pedido</h4>
@@ -196,7 +210,7 @@
             ],
         },
         methods: {
-            
+
             CargarServicios: function() {
                 axios.post('controller/consultar_banquetes.php')
                     .then((response) => {

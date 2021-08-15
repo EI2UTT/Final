@@ -64,13 +64,13 @@
                 <form>
                     <div class="card-group" id="app">
                         <div class="card" style="width: 18rem;" V-for="producto in productos">
-                            <img src="estilos/imagenes/stickercump.png" class="card-img-top" alt="...">
+                            <img src="" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{producto.nombredispro}}</h5>
                                 <label for="Cantidadinvita" class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" id="cantinv" cols="4" rows="1">
+                                <input type="number" class="form-control" id="cantinv" cols="4" rows="1" v-model="cantidad">
                                 <br>
-                                <a href="#" class="btn btn-primary">Añadir a carrito</a>
+                                <a href="#" class="btn btn-primary" @click="btnagregar(producto.id_dis_pro,producto.nombredispro)">Añadir a carrito</a>
                             </div>
 
                         </div>
@@ -153,6 +153,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11 "></script>
+
 
 
 </body>
@@ -163,15 +165,43 @@
             productos: [
 
             ],
+            pedido: "1",
+            cantidad: "",
         },
         methods: {
-
             CargarProductos: function() {
                 axios.post('controller/consultar_stickers.php')
                     .then((response) => {
                         this.productos = response.data
                     })
             },
+            Productoacarrito: function(id) {
+                axios.post('../srcphp/crud.php', {
+                    opcion: 4,
+                    pedido: this.pedido,
+                    producto: id,
+                    cantidad: this.cantidad
+                })
+
+            },
+            btnagregar: async function(id, nombre) {
+                Swal.fire({
+                    title: 'Quiere agregar el producto: ' + nombre + ' al carrito?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Aceptar'
+                }).then((result) => {
+                    if (result.value) {
+                        this.Productoacarrito(id);
+                        Swal.fire(
+                            'Agregado al carrito!',
+                            'El Producto se a agregado a su carrito!',
+                            'success'
+                        )
+                    }
+                })
+            }
+
 
         },
 
