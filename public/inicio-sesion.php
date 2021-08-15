@@ -154,7 +154,7 @@
     var params = new URLSearchParams();
      params.append('correo', this.clientes.correo);
     params.append('passwordd', this.clientes.passwordd);
-                axios.post('/controller/iniciarsesion.php', params)
+                axios.post('controller/iniciarsesion.php', params)
                     .then((response) => {
                         this.mostrarerror = !response.data.acceso;
                         if (response.data.acceso) {
